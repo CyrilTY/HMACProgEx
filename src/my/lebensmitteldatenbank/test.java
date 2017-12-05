@@ -12,7 +12,7 @@ package my.lebensmitteldatenbank;
 public class test {
     public static void main (String[] args){
         System.out.println("Ihr kleinen picos");
-        System.out.println("test von amirs pc");
+        System.out.println("du sehr kleiner picos");
     }
     
 }
