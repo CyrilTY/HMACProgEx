@@ -120,17 +120,12 @@ public class loginUI extends javax.swing.JFrame {
         String Username = UsernameTextField.getText();
         if (Passwort.contains("admin") && Username.contains("admin"))
         {
-            PasswordTextField.setText("");
-            UsernameTextField.setText("");
             this.dispose();
             new LebensmittelDatenbankUI().setVisible(true);
         }
         else
         {
-        JOptionPane.showMessageDialog(null,"Type the password again!","Wrong Password",JOptionPane.ERROR_MESSAGE);
-        PasswordTextField.setText("");
-        UsernameTextField.setText("");   
-        
+        JOptionPane.showMessageDialog(null,"Type the password again!","Wrong Password",JOptionPane.ERROR_MESSAGE);        
         }
     }//GEN-LAST:event_LoginButtonActionPerformed
 
