@@ -101,7 +101,6 @@ public class Anmeldefenster extends javax.swing.JFrame {
     }//GEN-LAST:event_Cancelbutton1ActionPerformed
 
     private void GastButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GastButton1ActionPerformed
-        this.dispose();
         new Gastlebensmittel().setVisible(true);
     }//GEN-LAST:event_GastButton1ActionPerformed
 

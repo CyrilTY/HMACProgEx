@@ -50,6 +50,9 @@ public class loginUI extends javax.swing.JFrame {
         jLabel2.setText("Password:");
 
         LoginButton2.setText("Login");
+        LoginButton2.setFocusable(false);
+        LoginButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        LoginButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         LoginButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LoginButton2ActionPerformed(evt);
