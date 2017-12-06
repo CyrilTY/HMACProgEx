@@ -9,12 +9,12 @@ package my.lebensmitteldatenbank;
  *
  * @author mustaphaazeggaghe
  */
-public class LebensmittelDatenbankUI extends javax.swing.JFrame {
+public class AdminlebensmittelDatenbankUI extends javax.swing.JFrame {
 
     /**
      * Creates new form LebensmittelDatenbankUI
      */
-    public LebensmittelDatenbankUI() {
+    public AdminlebensmittelDatenbankUI() {
         
         initComponents();
     }
@@ -135,20 +135,21 @@ public class LebensmittelDatenbankUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LebensmittelDatenbankUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminlebensmittelDatenbankUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LebensmittelDatenbankUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminlebensmittelDatenbankUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LebensmittelDatenbankUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminlebensmittelDatenbankUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LebensmittelDatenbankUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminlebensmittelDatenbankUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LebensmittelDatenbankUI().setVisible(true);
+                new AdminlebensmittelDatenbankUI().setVisible(true);
             }
         });
     }

@@ -5,6 +5,7 @@
  */
 package my.lebensmitteldatenbank;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -32,9 +33,9 @@ public class loginUI extends javax.swing.JFrame {
         UsernameTextField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        LoginButton = new javax.swing.JButton();
+        LoginButton2 = new javax.swing.JButton();
         PasswordTextField = new javax.swing.JPasswordField();
-        CancelButton = new javax.swing.JButton();
+        BackButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,10 +49,10 @@ public class loginUI extends javax.swing.JFrame {
 
         jLabel2.setText("Password:");
 
-        LoginButton.setText("Login");
-        LoginButton.addActionListener(new java.awt.event.ActionListener() {
+        LoginButton2.setText("Login");
+        LoginButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginButtonActionPerformed(evt);
+                LoginButton2ActionPerformed(evt);
             }
         });
 
@@ -61,10 +62,10 @@ public class loginUI extends javax.swing.JFrame {
             }
         });
 
-        CancelButton.setText("Cancel");
-        CancelButton.addActionListener(new java.awt.event.ActionListener() {
+        BackButton2.setText("Back");
+        BackButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelButtonActionPerformed(evt);
+                BackButton2ActionPerformed(evt);
             }
         });
 
@@ -74,11 +75,7 @@ public class loginUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(78, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(CancelButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LoginButton))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -86,7 +83,11 @@ public class loginUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(PasswordTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(UsernameTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(UsernameTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(BackButton2)
+                        .addGap(80, 80, 80)
+                        .addComponent(LoginButton2)))
                 .addGap(108, 108, 108))
         );
         layout.setVerticalGroup(
@@ -102,8 +103,8 @@ public class loginUI extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CancelButton)
-                    .addComponent(LoginButton))
+                    .addComponent(LoginButton2)
+                    .addComponent(BackButton2))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
@@ -114,28 +115,28 @@ public class loginUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_UsernameTextFieldActionPerformed
 
-    private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
+    private void LoginButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButton2ActionPerformed
         // TODO add your handling code here:
         String Passwort = PasswordTextField.getText();
         String Username = UsernameTextField.getText();
         if (Passwort.contains("admin") && Username.contains("admin"))
         {
             this.dispose();
-            new LebensmittelDatenbankUI().setVisible(true);
+            new AdminlebensmittelDatenbankUI().setVisible(true);
         }
         else
         {
         JOptionPane.showMessageDialog(null,"Type the password again!","Wrong Password",JOptionPane.ERROR_MESSAGE);        
         }
-    }//GEN-LAST:event_LoginButtonActionPerformed
+    }//GEN-LAST:event_LoginButton2ActionPerformed
 
     private void PasswordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PasswordTextFieldActionPerformed
 
-    private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
-         this.dispose();
-    }//GEN-LAST:event_CancelButtonActionPerformed
+    private void BackButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButton2ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_BackButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,7 +166,7 @@ public class loginUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+       java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new loginUI().setVisible(true);
             }
@@ -173,8 +174,8 @@ public class loginUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CancelButton;
-    private javax.swing.JButton LoginButton;
+    private javax.swing.JButton BackButton2;
+    private javax.swing.JButton LoginButton2;
     private javax.swing.JPasswordField PasswordTextField;
     private javax.swing.JTextField UsernameTextField;
     private javax.swing.JLabel jLabel1;
