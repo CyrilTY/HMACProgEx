@@ -3,16 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package my.lebensmitteldatenbank;
+package com.projektex.ebensmitteldatenbank;
+
+
 
 /**
  *
  * @author hamzasincanoglu
  */
-public class test {
-    public static void main (String[] args){
-        System.out.println("Ihr kleinen picos");
-        System.out.println("dus sehrs kleiners picos");
+public class MainStarter {
+
+    public static void main(String[] args) {
+        SelectionWindow anmelden = new SelectionWindow();
+        
+        
+     
     }
-    
+
 }
