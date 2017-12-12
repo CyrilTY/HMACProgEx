@@ -5,8 +5,6 @@
  */
 package com.projektex.ebensmitteldatenbank;
 
-
-
 /**
  *
  * @author hamzasincanoglu
@@ -14,10 +12,14 @@ package com.projektex.ebensmitteldatenbank;
 public class MainStarter {
 
     public static void main(String[] args) {
-        SelectionWindow anmelden = new SelectionWindow();
-        
-        
-     
-    }
+        /*SignUp anmelden = new SignUp();
+        anmelden.setVisible(true);
+         */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new SignUp().setVisible(true);
+            }
 
+        });
+    }
 }
