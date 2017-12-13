@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.projektex.ebensmitteldatenbank;
+package com.projektex.lebensmitteldatenbank;
 
 import javax.swing.JOptionPane;
 
@@ -52,7 +52,7 @@ public class SignIn extends javax.swing.JFrame {
 
         jPanel1Links.setBackground(new java.awt.Color(48, 100, 153));
 
-        jLabel1UserIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cyril\\Documents\\NetBeansProjects\\HMACProgEx\\imag\\Download.png")); // NOI18N
+        jLabel1UserIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cyril\\Documents\\NetBeansProjects\\HMACProgEx\\src\\com\\projektex\\lebensmitteldatenbank\\imag\\LoginSignIn.png")); // NOI18N
         jLabel1UserIcon.setText("jLabel1");
 
         jLabel1MembersLogin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -106,13 +106,13 @@ public class SignIn extends javax.swing.JFrame {
 
         jLabel3Username.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel3Username.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3Username.setText("Login Password");
+        jLabel3Username.setText("Password");
         jPanel2Unten.add(jLabel3Username);
         jLabel3Username.setBounds(340, 210, 90, 14);
 
         jLabel3Password.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel3Password.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3Password.setText("Login Username");
+        jLabel3Password.setText("Username");
         jPanel2Unten.add(jLabel3Password);
         jLabel3Password.setBounds(340, 120, 90, 16);
 
@@ -137,7 +137,7 @@ public class SignIn extends javax.swing.JFrame {
             }
         });
         jPanel2Unten.add(jButton1SignUp);
-        jButton1SignUp.setBounds(480, 280, 80, 40);
+        jButton1SignUp.setBounds(480, 280, 90, 40);
 
         jLabel2Already.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jLabel2Already.setForeground(new java.awt.Color(0, 102, 204));
@@ -157,7 +157,7 @@ public class SignIn extends javax.swing.JFrame {
             }
         });
         jPanel2Unten.add(jButton1Cancel);
-        jButton1Cancel.setBounds(350, 280, 80, 40);
+        jButton1Cancel.setBounds(340, 280, 90, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -175,25 +175,11 @@ public class SignIn extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1UsernameActionPerformed
-        String Passwort = jPasswordField1.getText();
-        String Username = jTextField1Username.getText();
-        if (Passwort.contains("admin") && Username.contains("admin")) {
-            this.dispose();
-            new AdminLebensmittel().setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "Type the password again!", "Wrong Password", JOptionPane.ERROR_MESSAGE);
-        }  
+       
     }//GEN-LAST:event_jTextField1UsernameActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
-        String Passwort = jPasswordField1.getText();
-        String Username = jTextField1Username.getText();
-        if (Passwort.contains("admin") && Username.contains("admin")) {
-            this.dispose();
-            new AdminLebensmittel().setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "Type the password again!", "Wrong Password", JOptionPane.ERROR_MESSAGE);
-        }
+      
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void jButton1SignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1SignUpActionPerformed
@@ -215,12 +201,12 @@ public class SignIn extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+   /* public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+         *//*
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -242,13 +228,13 @@ public class SignIn extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the form *//*
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SignIn().setVisible(true);
             }
         });
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1Cancel;

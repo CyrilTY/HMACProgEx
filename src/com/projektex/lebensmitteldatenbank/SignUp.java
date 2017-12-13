@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.projektex.ebensmitteldatenbank;
+package com.projektex.lebensmitteldatenbank;
 
 import javax.swing.JOptionPane;
 
@@ -30,52 +30,43 @@ public class SignUp extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1Unten = new javax.swing.JPanel();
+        jPanel1HinterGrund = new javax.swing.JPanel();
         jPanel2Links = new javax.swing.JPanel();
-        jLabel1Image1 = new javax.swing.JLabel();
+        jLabel1images1Links = new javax.swing.JLabel();
         jLabel2SignUp = new javax.swing.JLabel();
         jButton1Admin = new javax.swing.JButton();
         jButton1Guest = new javax.swing.JButton();
         jButton1Close = new javax.swing.JButton();
         jPanel1Rechts = new javax.swing.JPanel();
-        jLabel1Immage2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1Unten = new javax.swing.JPanel();
+        jPanel2Oben = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Selection Window");
         setUndecorated(true);
         setResizable(false);
 
-        jPanel1Unten.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1Unten.setLayout(null);
+        jPanel1HinterGrund.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1HinterGrund.setLayout(null);
 
+        jPanel2Links.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2Links.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2Links.setLayout(null);
 
-        jLabel1Image1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cyril\\Documents\\NetBeansProjects\\HMACProgEx\\imag\\food_labelling1.png")); // NOI18N
+        jLabel1images1Links.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cyril\\Documents\\NetBeansProjects\\HMACProgEx\\src\\com\\projektex\\lebensmitteldatenbank\\imag\\images1Links.jpg")); // NOI18N
+        jPanel2Links.add(jLabel1images1Links);
+        jLabel1images1Links.setBounds(0, 70, 240, 210);
 
-        javax.swing.GroupLayout jPanel2LinksLayout = new javax.swing.GroupLayout(jPanel2Links);
-        jPanel2Links.setLayout(jPanel2LinksLayout);
-        jPanel2LinksLayout.setHorizontalGroup(
-            jPanel2LinksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2LinksLayout.createSequentialGroup()
-                .addComponent(jLabel1Image1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel2LinksLayout.setVerticalGroup(
-            jPanel2LinksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2LinksLayout.createSequentialGroup()
-                .addComponent(jLabel1Image1, javax.swing.GroupLayout.PREFERRED_SIZE, 399, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jPanel1Unten.add(jPanel2Links);
-        jPanel2Links.setBounds(0, 0, 240, 410);
+        jPanel1HinterGrund.add(jPanel2Links);
+        jPanel2Links.setBounds(0, 40, 240, 310);
 
         jLabel2SignUp.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
         jLabel2SignUp.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2SignUp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2SignUp.setText("Sign up");
-        jPanel1Unten.add(jLabel2SignUp);
-        jLabel2SignUp.setBounds(230, 0, 140, 90);
+        jPanel1HinterGrund.add(jLabel2SignUp);
+        jLabel2SignUp.setBounds(230, 10, 140, 90);
 
         jButton1Admin.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jButton1Admin.setText("Admin");
@@ -86,7 +77,7 @@ public class SignUp extends javax.swing.JFrame {
                 jButton1AdminActionPerformed(evt);
             }
         });
-        jPanel1Unten.add(jButton1Admin);
+        jPanel1HinterGrund.add(jButton1Admin);
         jButton1Admin.setBounds(250, 110, 100, 50);
 
         jButton1Guest.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -98,7 +89,7 @@ public class SignUp extends javax.swing.JFrame {
                 jButton1GuestActionPerformed(evt);
             }
         });
-        jPanel1Unten.add(jButton1Guest);
+        jPanel1HinterGrund.add(jButton1Guest);
         jButton1Guest.setBounds(250, 200, 100, 50);
 
         jButton1Close.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -110,35 +101,38 @@ public class SignUp extends javax.swing.JFrame {
                 jButton1CloseActionPerformed(evt);
             }
         });
-        jPanel1Unten.add(jButton1Close);
+        jPanel1HinterGrund.add(jButton1Close);
         jButton1Close.setBounds(250, 290, 100, 50);
 
-        jLabel1Immage2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cyril\\Documents\\NetBeansProjects\\HMACProgEx\\imag\\food_labelling1.png")); // NOI18N
-        jLabel1Immage2.setText("jLabel1");
+        jPanel1Rechts.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1Rechts.setLayout(null);
 
-        javax.swing.GroupLayout jPanel1RechtsLayout = new javax.swing.GroupLayout(jPanel1Rechts);
-        jPanel1Rechts.setLayout(jPanel1RechtsLayout);
-        jPanel1RechtsLayout.setHorizontalGroup(
-            jPanel1RechtsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1Immage2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, Short.MAX_VALUE)
-        );
-        jPanel1RechtsLayout.setVerticalGroup(
-            jPanel1RechtsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1Immage2, javax.swing.GroupLayout.PREFERRED_SIZE, 408, Short.MAX_VALUE)
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cyril\\Documents\\NetBeansProjects\\HMACProgEx\\src\\com\\projektex\\lebensmitteldatenbank\\imag\\images2Rechts.jpg")); // NOI18N
+        jPanel1Rechts.add(jLabel1);
+        jLabel1.setBounds(10, 70, 220, 200);
 
-        jPanel1Unten.add(jPanel1Rechts);
-        jPanel1Rechts.setBounds(360, 0, 230, 400);
+        jPanel1HinterGrund.add(jPanel1Rechts);
+        jPanel1Rechts.setBounds(360, 40, 230, 310);
+
+        jPanel1Unten.setBackground(new java.awt.Color(10, 100, 153));
+        jPanel1Unten.setLayout(null);
+        jPanel1HinterGrund.add(jPanel1Unten);
+        jPanel1Unten.setBounds(0, 370, 590, 30);
+
+        jPanel2Oben.setBackground(new java.awt.Color(10, 100, 153));
+        jPanel2Oben.setLayout(null);
+        jPanel1HinterGrund.add(jPanel2Oben);
+        jPanel2Oben.setBounds(0, 0, 590, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1Unten, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+            .addComponent(jPanel1HinterGrund, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1Unten, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1HinterGrund, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
 
         setSize(new java.awt.Dimension(588, 400));
@@ -201,11 +195,13 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JButton jButton1Admin;
     private javax.swing.JButton jButton1Close;
     private javax.swing.JButton jButton1Guest;
-    private javax.swing.JLabel jLabel1Image1;
-    private javax.swing.JLabel jLabel1Immage2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel1images1Links;
     private javax.swing.JLabel jLabel2SignUp;
+    private javax.swing.JPanel jPanel1HinterGrund;
     private javax.swing.JPanel jPanel1Rechts;
     private javax.swing.JPanel jPanel1Unten;
     private javax.swing.JPanel jPanel2Links;
+    private javax.swing.JPanel jPanel2Oben;
     // End of variables declaration//GEN-END:variables
 }
