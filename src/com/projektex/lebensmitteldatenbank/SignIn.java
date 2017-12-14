@@ -175,10 +175,26 @@ public class SignIn extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1UsernameActionPerformed
+          String Passwort = jPasswordField1.getText();
+          String Username = jTextField1Username.getText();
+        if (Passwort.contains("admin") && Username.contains("admin")) {
+            this.dispose();
+            new AdminLebensmittel().setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Type the password again!", "Wrong Password", JOptionPane.ERROR_MESSAGE);
+        }
        
     }//GEN-LAST:event_jTextField1UsernameActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        String Passwort = jPasswordField1.getText();
+        String Username = jTextField1Username.getText();
+        if (Passwort.contains("admin") && Username.contains("admin")) {
+            this.dispose();
+            new AdminLebensmittel().setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Type the password again!", "Wrong Password", JOptionPane.ERROR_MESSAGE);
+        }
       
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 

@@ -17,7 +17,7 @@ public class DatenbankVerbindung {
 		
 		try {
 			// 1. Get a connection to database
-			myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Lebensmittel??verifyServerCertificate=false&useSSL=true", "root" , "****");
+			myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Lebensmittel??verifyServerCertificate=false&useSSL=true", "root" , "Swordfish25");
 			
 			// 2. Create a statement
 			myStmt = myConn.createStatement();
