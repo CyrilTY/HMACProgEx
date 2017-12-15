@@ -284,7 +284,7 @@ public class GuestLebensmittel extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Produktname", "Kalorien", "Gewicht", "Preis" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bitte auswählen", "Produktname", "Kalorien", "Gewicht", "Preis" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -396,6 +396,14 @@ public class GuestLebensmittel extends javax.swing.JFrame {
         jTextField1.setText("");    
         orderPreis();
         }
+        else if (temp.contains("Bitte auswählen") && temp2.contains("absteigend"))
+        {
+        jTextField1.setText("");  
+        }
+        else if (temp.contains("Bitte auswählen") && temp2.contains("aufsteigend"))
+        {
+        jTextField1.setText("");  
+        }
         else if (temp.contains("Preis") && temp2.contains("absteigend"))
         {
         jTextField1.setText("");
@@ -453,6 +461,14 @@ public class GuestLebensmittel extends javax.swing.JFrame {
         {
         jTextField1.setText("");
         orderdescPreis();
+        }
+         else if (temp.contains("Bitte auswählen") && temp2.contains("absteigend"))
+        {
+        jTextField1.setText("");  
+        }
+        else if (temp.contains("Bitte auswählen") && temp2.contains("aufsteigend"))
+        {
+        jTextField1.setText("");  
         }
         else if (temp.contains("Produktname") && temp2.contains("aufsteigend"))
         {
