@@ -25,7 +25,7 @@ public final class DbTable {
     public void systemConnection(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con= (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/Lebensmittel??verifyServerCertificate=false&useSSL=true", "root" , "523");
+            con= (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/lebensmittel?verifyServerCertificate=false&useSSL=true", "root" , "5273");
             stat = (Statement) con.createStatement();
             
             
