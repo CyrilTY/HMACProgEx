@@ -33,7 +33,7 @@ public class GuestLebensmittel extends javax.swing.JFrame {
                 String ProduktName = db.res.getString(2);
                 int Kalorien = db.res.getInt(3);
                 int Gewicht = db.res.getInt(4);
-                double Preis = db.res.getInt(5);
+                double Preis = db.res.getDouble(5);
                 
                 Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
                 DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
@@ -56,7 +56,7 @@ public class GuestLebensmittel extends javax.swing.JFrame {
                 String ProduktName = db.res.getString(2);
                 int Kalorien = db.res.getInt(3);
                 int Gewicht = db.res.getInt(4);
-                double Preis = db.res.getInt(5);
+                double Preis = db.res.getDouble(5);
                 
                 Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
                 DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
@@ -234,7 +234,7 @@ public class GuestLebensmittel extends javax.swing.JFrame {
                 String ProduktName = db.res.getString(2);
                 int Kalorien = db.res.getInt(3);
                 int Gewicht = db.res.getInt(4);
-                float Preis = db.res.getInt(5);
+                double Preis = db.res.getDouble(5);
                 
                 Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
                 DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
