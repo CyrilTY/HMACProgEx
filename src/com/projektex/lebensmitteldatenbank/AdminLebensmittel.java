@@ -9,7 +9,7 @@ public final class AdminLebensmittel extends javax.swing.JFrame {
     public AdminLebensmittel() {
         initComponents();
         showTable();
-        //hallo
+        //hallod
     }
 
     public void showTable(){
