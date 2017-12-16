@@ -359,14 +359,18 @@ public class GuestLebensmittel extends javax.swing.JFrame {
            showTable();
         }
                 
-        /*try{
-            orderPreis();
+        try{
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             model.setRowCount(0);
-            db.res = db.stat.executeQuery("SELECT * " +
-                                          "FROM Artikel " +
-                                          "WHERE preis =  2");
-            
+            if(temp.contains(temp))
+            {
+            db.res = db.stat.executeQuery("SELECT * FROM Artikel WHERE ProduktName = Ei");
+            }
+            else
+            {
+            orderPreis();
+            }    
+                
             while(db.res.next()){
                 String ID = db.res.getString(1);
                 String ProduktName = db.res.getString(2);
@@ -381,7 +385,7 @@ public class GuestLebensmittel extends javax.swing.JFrame {
             
         }catch(SQLException e) {
             
-        }*/
+        }
         
     }//GEN-LAST:event_jSucheActionPerformed
 
