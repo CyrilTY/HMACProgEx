@@ -7,6 +7,7 @@ package com.projektex.lebensmitteldatenbank;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
+import java.*;
 
 
 /**
@@ -354,23 +355,14 @@ public class GuestLebensmittel extends javax.swing.JFrame {
     private void jSucheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSucheActionPerformed
         String temp; 
         temp = jTextField1.getText();
-        if(temp.contains(""))
-        {
-           showTable();
-        }
+        System.out.println("Zu suchendes Wort: "+temp);
                 
         try{
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             model.setRowCount(0);
-            if(temp.contains(temp))
-            {
-            db.res = db.stat.executeQuery("SELECT * FROM Artikel WHERE ProduktName = Ei");
-            }
-            else
-            {
-            orderPreis();
-            }    
-                
+            db.res = db.stat.executeQuery("SELECT * FROM Artikel WHERE ProduktName = '"+temp+"'");
+            
+            
             while(db.res.next()){
                 String ID = db.res.getString(1);
                 String ProduktName = db.res.getString(2);
