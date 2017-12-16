@@ -33,7 +33,7 @@ public class GuestLebensmittel extends javax.swing.JFrame {
                 String ProduktName = db.res.getString(2);
                 int Kalorien = db.res.getInt(3);
                 int Gewicht = db.res.getInt(4);
-                int Preis = db.res.getInt(5);
+                double Preis = db.res.getInt(5);
                 
                 Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
                 DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
@@ -44,19 +44,19 @@ public class GuestLebensmittel extends javax.swing.JFrame {
             
         }
     }
-     public void orderPreis(){
-        try{
+     public void tabelleAusgabe(String a){
+         try{
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             model.setRowCount(0);
             
-            db.res = db.stat.executeQuery("SELECT * FROM Artikel ORDER BY preis");
+            db.res = db.stat.executeQuery(a);
             
             while(db.res.next()){
                 String ID = db.res.getString(1);
                 String ProduktName = db.res.getString(2);
                 int Kalorien = db.res.getInt(3);
                 int Gewicht = db.res.getInt(4);
-                int Preis = db.res.getInt(5);
+                double Preis = db.res.getInt(5);
                 
                 Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
                 DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
@@ -67,174 +67,40 @@ public class GuestLebensmittel extends javax.swing.JFrame {
         }catch(SQLException e) {
             
         }
+     }
+     
+     public void orderPreis(){
+       tabelleAusgabe("SELECT * FROM Artikel ORDER BY preis");
     }
      
       public void orderdescPreis(){
-        try{
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0);
-            db.res = db.stat.executeQuery("SELECT * FROM Artikel ORDER BY preis desc");
-            
-            while(db.res.next()){
-                String ID = db.res.getString(1);
-                String ProduktName = db.res.getString(2);
-                int Kalorien = db.res.getInt(3);
-                int Gewicht = db.res.getInt(4);
-                int Preis = db.res.getInt(5);
-                
-                Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
-                DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
-                model2.addRow(content);
-            }
-            
-        }catch(SQLException e) {
-            
-        }
+       
+        tabelleAusgabe("SELECT * FROM Artikel ORDER BY preis desc");
     }
 
      public void orderKalorien(){
-        try{
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0);
-            
-            db.res = db.stat.executeQuery("SELECT * FROM Artikel ORDER BY Kalorien");
-            
-            while(db.res.next()){
-                String ID = db.res.getString(1);
-                String ProduktName = db.res.getString(2);
-                int Kalorien = db.res.getInt(3);
-                int Gewicht = db.res.getInt(4);
-                int Preis = db.res.getInt(5);
-                
-                Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
-                DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
-                model2.addRow(content);
-                
-            }
-            
-        }catch(SQLException e) {
-            
-        }
+        tabelleAusgabe("SELECT * FROM Artikel ORDER BY Kalorien");
     } 
      
         public void orderdescKalorien(){
-        try{
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0);
-            db.res = db.stat.executeQuery("SELECT * FROM Artikel ORDER BY Kalorien desc");
-            
-            while(db.res.next()){
-                String ID = db.res.getString(1);
-                String ProduktName = db.res.getString(2);
-                int Kalorien = db.res.getInt(3);
-                int Gewicht = db.res.getInt(4);
-                int Preis = db.res.getInt(5);
-                
-                Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
-                DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
-                model2.addRow(content);
-            }
-            
-        }catch(SQLException e) {
-            
-        }
+        tabelleAusgabe("SELECT * FROM Artikel ORDER BY Kalorien desc");
     }
     
      public void orderGewicht(){
-        try{
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0);
-            
-            db.res = db.stat.executeQuery("SELECT * FROM Artikel ORDER BY Gewicht");
-            
-            while(db.res.next()){
-                String ID = db.res.getString(1);
-                String ProduktName = db.res.getString(2);
-                int Kalorien = db.res.getInt(3);
-                int Gewicht = db.res.getInt(4);
-                int Preis = db.res.getInt(5);
-                
-                Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
-                DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
-                model2.addRow(content);
-                
-            }
-            
-        }catch(SQLException e) {
-            
-        }
+        tabelleAusgabe("SELECT * FROM Artikel ORDER BY Gewicht");
     }
      
      
      public void orderdescGewicht(){
-        try{
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0);
-            db.res = db.stat.executeQuery("SELECT * FROM Artikel ORDER BY Gewicht desc");
-            
-            while(db.res.next()){
-                String ID = db.res.getString(1);
-                String ProduktName = db.res.getString(2);
-                int Kalorien = db.res.getInt(3);
-                int Gewicht = db.res.getInt(4);
-                int Preis = db.res.getInt(5);
-                
-                Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
-                DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
-                model2.addRow(content);
-            }
-            
-        }catch(SQLException e) {
-            
-        }
+        tabelleAusgabe("SELECT * FROM Artikel ORDER BY Gewicht desc");
     }
      
       public void orderProduktname(){
-        try{
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0);
-            
-            db.res = db.stat.executeQuery("SELECT * FROM Artikel ORDER BY ProduktName");
-            
-            while(db.res.next()){
-                String ID = db.res.getString(1);
-                String ProduktName = db.res.getString(2);
-                int Kalorien = db.res.getInt(3);
-                int Gewicht = db.res.getInt(4);
-                int Preis = db.res.getInt(5);
-                
-                Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
-                DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
-                model2.addRow(content);
-                
-            }
-            
-        }catch(SQLException e) {
-            
-        }
+        tabelleAusgabe("SELECT * FROM Artikel ORDER BY ProduktName");
     }
       
       public void orderdescProduktname(){
-        try{
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0);
-            db.res = db.stat.executeQuery("SELECT * FROM Artikel ORDER BY ProduktName desc");
-            
-            while(db.res.next()){
-                String ID = db.res.getString(1);
-                String ProduktName = db.res.getString(2);
-                int Kalorien = db.res.getInt(3);
-                int Gewicht = db.res.getInt(4);
-                int Preis = db.res.getInt(5);
-                
-                Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
-                DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
-                model2.addRow(content);
-            }
-            
-        }catch(SQLException e) {
-            
-        }
+        tabelleAusgabe("SELECT * FROM Artikel ORDER BY ProduktName desc");
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -321,7 +187,7 @@ public class GuestLebensmittel extends javax.swing.JFrame {
                         .addComponent(jSuche, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                    .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane2))
                 .addGap(26, 26, 26))
         );
@@ -355,7 +221,7 @@ public class GuestLebensmittel extends javax.swing.JFrame {
     private void jSucheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSucheActionPerformed
         String temp; 
         temp = jTextField1.getText();
-        System.out.println("Zu suchendes Wort: "+temp);
+        
                 
         try{
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
@@ -368,7 +234,7 @@ public class GuestLebensmittel extends javax.swing.JFrame {
                 String ProduktName = db.res.getString(2);
                 int Kalorien = db.res.getInt(3);
                 int Gewicht = db.res.getInt(4);
-                int Preis = db.res.getInt(5);
+                float Preis = db.res.getInt(5);
                 
                 Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
                 DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
