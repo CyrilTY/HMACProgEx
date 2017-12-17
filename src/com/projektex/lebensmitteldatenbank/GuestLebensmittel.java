@@ -44,6 +44,26 @@ public class GuestLebensmittel extends javax.swing.JFrame {
             
         }
     }
+    
+     
+     public void totalCal(int a, int b){
+         
+                float totalcal=0;
+                float cal=a;
+                float wei=b;
+                totalcal=cal/100*wei;
+                
+                
+                 
+                 String temp=Float.toString(totalcal);
+                
+               
+                jTextArea1.setText("Gesamt Kalorien:"+temp);
+               
+                
+     
+     }
+     
      public void tabelleAusgabe(String a){
          try{
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
@@ -62,12 +82,21 @@ public class GuestLebensmittel extends javax.swing.JFrame {
                 DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
                 model2.addRow(content);
                 
+                totalCal(Kalorien, Gewicht);
+                
+                
             }
+            
+           
+            
+            
             
         }catch(SQLException e) {
             
         }
      }
+     
+     
      
      public void orderPreis(){
        tabelleAusgabe("SELECT * FROM Artikel ORDER BY preis");
@@ -145,6 +174,11 @@ public class GuestLebensmittel extends javax.swing.JFrame {
                 "ID", "Produktname", "Kalorien", "Gewicht", "Preis"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jTextArea1.setColumns(20);
@@ -185,7 +219,7 @@ public class GuestLebensmittel extends javax.swing.JFrame {
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSuche, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane2))
@@ -364,6 +398,10 @@ public class GuestLebensmittel extends javax.swing.JFrame {
         orderdescGewicht();
         }
     }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
