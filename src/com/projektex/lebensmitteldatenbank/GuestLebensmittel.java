@@ -46,7 +46,7 @@ public class GuestLebensmittel extends javax.swing.JFrame {
     }
     
      
-     public void totalCal(int a, int b){
+     /*public void totalCal(int a, int b){
          
                 float totalcal=0;
                 float cal=a;
@@ -59,10 +59,11 @@ public class GuestLebensmittel extends javax.swing.JFrame {
                 
                
                 jTextArea1.setText("Gesamt Kalorien:"+temp);
+                
                
                 
      
-     }
+     }*/
      
      public void tabelleAusgabe(String a){
          try{
@@ -77,12 +78,12 @@ public class GuestLebensmittel extends javax.swing.JFrame {
                 int Kalorien = db.res.getInt(3);
                 int Gewicht = db.res.getInt(4);
                 double Preis = db.res.getDouble(5);
-                
+  
                 Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
                 DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
                 model2.addRow(content);
                 
-                totalCal(Kalorien, Gewicht);
+                //totalCal(Kalorien, Gewicht);
                 
                 
             }
@@ -131,6 +132,14 @@ public class GuestLebensmittel extends javax.swing.JFrame {
       public void orderdescProduktname(){
         tabelleAusgabe("SELECT * FROM Artikel ORDER BY ProduktName desc");
     }
+      
+      public void sucheProdukt(){
+        String temp; 
+        temp = jTextField1.getText();
+        
+            if(temp.equals(""))     {showTable();}
+            else                    {tabelleAusgabe("SELECT * FROM Artikel WHERE ProduktName = '"+temp+"'");}
+      }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -150,6 +159,8 @@ public class GuestLebensmittel extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jSlider1 = new javax.swing.JSlider();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -201,6 +212,14 @@ public class GuestLebensmittel extends javax.swing.JFrame {
 
         jLabel1.setText("Sortieren nach");
 
+        jLabel2.setText("Gesamt Kalorien:");
+
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -219,10 +238,14 @@ public class GuestLebensmittel extends javax.swing.JFrame {
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSuche, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
+                    .addComponent(jScrollPane2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField2)))
                 .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
@@ -242,43 +265,23 @@ public class GuestLebensmittel extends javax.swing.JFrame {
                             .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jScrollPane2)))
-                .addGap(25, 25, 25))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(213, 213, 213)))
+                .addGap(46, 46, 46))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jSucheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSucheActionPerformed
-        String temp; 
-        temp = jTextField1.getText();
-        
-                
-        try{
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0);
-            db.res = db.stat.executeQuery("SELECT * FROM Artikel WHERE ProduktName = '"+temp+"'");
-            
-            
-            while(db.res.next()){
-                String ID = db.res.getString(1);
-                String ProduktName = db.res.getString(2);
-                int Kalorien = db.res.getInt(3);
-                int Gewicht = db.res.getInt(4);
-                double Preis = db.res.getDouble(5);
-                
-                Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
-                DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
-                model2.addRow(content);
-            }
-            
-        }catch(SQLException e) {
-            
-        }
-        
+      sucheProdukt();
     }//GEN-LAST:event_jSucheActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -340,6 +343,7 @@ public class GuestLebensmittel extends javax.swing.JFrame {
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
+            sucheProdukt(); 
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
@@ -401,7 +405,22 @@ public class GuestLebensmittel extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
+        if(jTable1.getSelectedRow()> -1){
+                String cal=jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString();
+                String wei=jTable1.getValueAt(jTable1.getSelectedRow(), 3).toString();
+                Float bla1=Float.valueOf(cal);
+                Float bla2=Float.valueOf(wei);
+                Float bla3=bla1/100*bla2;
+                jTextField2.setText(bla3.toString());
+                
+        }
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+        
+       
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -442,6 +461,7 @@ public class GuestLebensmittel extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSlider jSlider1;
@@ -449,6 +469,7 @@ public class GuestLebensmittel extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 
     private void setText(String toString) {
