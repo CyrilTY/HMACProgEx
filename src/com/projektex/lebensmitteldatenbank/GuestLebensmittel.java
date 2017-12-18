@@ -6,8 +6,11 @@
 package com.projektex.lebensmitteldatenbank;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.JOptionPane;
-import java.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 
 /**
@@ -24,6 +27,8 @@ public class GuestLebensmittel extends javax.swing.JFrame {
     
      public void showTable(){
         try{
+            Bildlabel.hide();
+            jTextField2.setText("");
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             model.setRowCount(0);
             db.res = db.stat.executeQuery("SELECT * FROM Artikel");
@@ -51,22 +56,15 @@ public class GuestLebensmittel extends javax.swing.JFrame {
                 float totalcal=0;
                 float cal=a;
                 float wei=b;
-                totalcal=cal/100*wei;
-                
-                
-                 
-                 String temp=Float.toString(totalcal);
-                
-               
+                totalcal=cal/100*wei; 
+                String temp=Float.toString(totalcal);
                 jTextArea1.setText("Gesamt Kalorien:"+temp);
-                
-               
-                
-     
      }*/
      
      public void tabelleAusgabe(String a){
          try{
+            Bildlabel.hide();
+            jTextField2.setText("");
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             model.setRowCount(0);
             
@@ -82,10 +80,7 @@ public class GuestLebensmittel extends javax.swing.JFrame {
                 Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
                 DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
                 model2.addRow(content);
-                
                 //totalCal(Kalorien, Gewicht);
-                
-                
             }
             
            
@@ -97,7 +92,7 @@ public class GuestLebensmittel extends javax.swing.JFrame {
         }
      }
      
-     
+     public void leereFeld() {jTextField1.setText(""); }
      
      public void orderPreis(){
        tabelleAusgabe("SELECT * FROM Artikel ORDER BY preis");
@@ -140,6 +135,14 @@ public class GuestLebensmittel extends javax.swing.JFrame {
             if(temp.equals(""))     {showTable();}
             else                    {tabelleAusgabe("SELECT * FROM Artikel WHERE ProduktName = '"+temp+"'");}
       }
+      public void showImage(String a) throws IOException
+      {            
+                Bildlabel.hide();
+                BufferedImage temp = ImageIO.read(this.getClass().getResource(a));
+                Bildlabel = new JLabel(new ImageIcon(temp));
+                jPanel1.add(Bildlabel);
+                Bildlabel.setSize(240, 240);
+      }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -153,14 +156,14 @@ public class GuestLebensmittel extends javax.swing.JFrame {
         jSuche = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jSlider1 = new javax.swing.JSlider();
         jLabel2 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        Bildlabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -192,10 +195,6 @@ public class GuestLebensmittel extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
-
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bitte auswählen", "Produktname", "Kalorien", "Gewicht", "Preis" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,6 +219,10 @@ public class GuestLebensmittel extends javax.swing.JFrame {
             }
         });
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+        jPanel1.add(Bildlabel, new java.awt.GridBagConstraints());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -239,10 +242,10 @@ public class GuestLebensmittel extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSuche, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSlider1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField2)))
@@ -257,23 +260,21 @@ public class GuestLebensmittel extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jSuche)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(213, 213, 213)))
+                        .addGap(213, 213, 213))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
                 .addGap(46, 46, 46))
         );
 
@@ -292,51 +293,51 @@ public class GuestLebensmittel extends javax.swing.JFrame {
         
         if (temp.contains("Preis") && temp2.contains("aufsteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();   
         orderPreis();
         }
         else if (temp.contains("Bitte auswählen") && temp2.contains("absteigend"))
         {
-        jTextField1.setText("");  
+        leereFeld(); 
         }
         else if (temp.contains("Bitte auswählen") && temp2.contains("aufsteigend"))
         {
-        jTextField1.setText("");  
+        leereFeld();  
         }
         else if (temp.contains("Preis") && temp2.contains("absteigend"))
         {
-        jTextField1.setText("");
+        leereFeld();;
         orderdescPreis();
         }
         else if (temp.contains("Produktname") && temp2.contains("aufsteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();    
         orderProduktname();
         }
         else if (temp.contains("Produktname") && temp2.contains("absteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();    
         orderdescProduktname();
         }
         else if (temp.contains("Kalorien") && temp2.contains("aufsteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();    
         orderKalorien();
         }
         else if (temp.contains("Kalorien") && temp2.contains("absteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();    
         orderdescKalorien();
         }
         
         else if (temp.contains("Gewicht") && temp2.contains("aufsteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();   
         orderGewicht();
         }
         else if (temp.contains("Gewicht") && temp2.contains("absteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();   
         orderdescGewicht();
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
@@ -354,72 +355,119 @@ public class GuestLebensmittel extends javax.swing.JFrame {
         
         if (temp.contains("Preis") && temp2.contains("aufsteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();    
         orderPreis();
         }
         else if (temp.contains("Preis") && temp2.contains("absteigend"))
         {
-        jTextField1.setText("");
+        leereFeld();
         orderdescPreis();
         }
          else if (temp.contains("Bitte auswählen") && temp2.contains("absteigend"))
         {
-        jTextField1.setText("");  
+        leereFeld(); 
         }
         else if (temp.contains("Bitte auswählen") && temp2.contains("aufsteigend"))
         {
-        jTextField1.setText("");  
+        leereFeld();  
         }
         else if (temp.contains("Produktname") && temp2.contains("aufsteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();   
         orderProduktname();
         }
         else if (temp.contains("Produktname") && temp2.contains("absteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();   
         orderdescProduktname();
         }
         else if (temp.contains("Kalorien") && temp2.contains("aufsteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();    
         orderKalorien();
         }
         else if (temp.contains("Kalorien") && temp2.contains("absteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();    
         orderdescKalorien();
         }
         
         else if (temp.contains("Gewicht") && temp2.contains("aufsteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();    
         orderGewicht();
         }
         else if (temp.contains("Gewicht") && temp2.contains("absteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();    
         orderdescGewicht();
         }
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
+        // Meths
+         /*BufferedImage test = ImageIO.read(this.getClass().getResource("Snickers.jpg"));
+                JLabel test2 = new JLabel(new ImageIcon(test));
+                jPanel1.add(test2);
+                test2.setSize(240, 240);*/
+         
         if(jTable1.getSelectedRow()> -1){
-                String cal=jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString();
-                String wei=jTable1.getValueAt(jTable1.getSelectedRow(), 3).toString();
-                Float bla1=Float.valueOf(cal);
-                Float bla2=Float.valueOf(wei);
-                Float bla3=bla1/100*bla2;
-                jTextField2.setText(bla3.toString());
+            try {
+                String a = jTable1.getValueAt(jTable1.getSelectedRow(),1).toString();
+                showImage("Bilder/"+a+".jpg");
                 
+                /* Amirs
+                if(jTable1.getSelectedRow() == 1)
+                {
+                showImage("Bilder/Frischkäse_2.jpg");    
+                }
+                else if(jTable1.getSelectedRow() == 2)
+                {
+                showImage("Bilder/Magerquark_3.jpg");    
+                }
+                else if(jTable1.getSelectedRow() == 3)
+                {
+                showImage("Bilder/Ei_4.jpg");    
+                }
+                else if(jTable1.getSelectedRow() == 4)
+                {
+                showImage("Bilder/Snickers_5.jpg");    
+                }
+                else if(jTable1.getSelectedRow() == 5)
+                {
+                showImage("Bilder/Eistee_6.jpg");    
+                }
+                else if(jTable1.getSelectedRow() == 6)
+                {
+                showImage("Bilder/Sucuk_7.jpg");    
+                }
+                else if(jTable1.getSelectedRow() == 7)
+                {
+                showImage("Bilder/Kartoffel_8.jpg");    
+                }
+                else if(jTable1.getSelectedRow() == 8)
+                {
+                showImage("Bilder/Nudeln_9.jpg");    
+                }
+                */
+                
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            
+                
+            String cal=jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString();
+            String wei=jTable1.getValueAt(jTable1.getSelectedRow(), 3).toString();
+            Double cal1=Double.valueOf(cal);
+            Double wei1=Double.valueOf(wei);
+            Double Result=cal1/100*wei1;
+            String stringresult = Double.toString(Math.round(Result));
+            jTextField2.setText(stringresult +" kcal");      
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
-        
-       
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
@@ -458,25 +506,18 @@ public class GuestLebensmittel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Bildlabel;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JButton jSuche;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 
-    private void setText(String toString) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private boolean contains(String preis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
