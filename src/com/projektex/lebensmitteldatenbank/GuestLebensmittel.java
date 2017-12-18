@@ -23,6 +23,7 @@ public class GuestLebensmittel extends javax.swing.JFrame {
     
     public GuestLebensmittel() {
         initComponents();
+        this.setLocationRelativeTo(null);
         showTable();
     }
     
