@@ -177,7 +177,7 @@ public class SignIn extends javax.swing.JFrame {
     private void jTextField1UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1UsernameActionPerformed
           String Passwort = jPasswordField1.getText();
           String Username = jTextField1Username.getText();
-        if (Passwort.contains("admin") && Username.contains("admin")) {
+        if (Passwort.equals("admin") && Username.equals("admin")) {
             this.dispose();
             new AdminLebensmittel().setVisible(true);
         } else {
@@ -189,7 +189,7 @@ public class SignIn extends javax.swing.JFrame {
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         String Passwort = jPasswordField1.getText();
         String Username = jTextField1Username.getText();
-        if (Passwort.contains("admin") && Username.contains("admin")) {
+        if (Passwort.equals("admin") && Username.equals("admin")) {
             this.dispose();
             new AdminLebensmittel().setVisible(true);
         } else {
@@ -201,7 +201,7 @@ public class SignIn extends javax.swing.JFrame {
     private void jButton1SignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1SignUpActionPerformed
         String Passwort = jPasswordField1.getText();
         String Username = jTextField1Username.getText();
-        if (Passwort.contains("admin") && Username.contains("admin")) {
+        if (Passwort.equals("admin") && Username.equals("admin")) {
             this.dispose();
             new AdminLebensmittel().setVisible(true);
         } else {

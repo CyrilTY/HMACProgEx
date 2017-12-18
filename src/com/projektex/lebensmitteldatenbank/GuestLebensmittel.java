@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 
 /**
  *
- * @author hamzasincanoglu
+ * @author Amir Mahmood
  */
 public class GuestLebensmittel extends javax.swing.JFrame {
         DbTable db = new DbTable();
@@ -46,9 +46,8 @@ public class GuestLebensmittel extends javax.swing.JFrame {
                 model2.addRow(content);
             }
             
-        }catch(SQLException e) {
-            
         }
+        catch(SQLException e) { }
     }
      
      /*public void totalCal(int a, int b){
@@ -189,8 +188,9 @@ public class GuestLebensmittel extends javax.swing.JFrame {
                 "ID", "Produktname", "Kalorien (auf 100g)", "Gewicht", "Preis"
             }
         ));
-        jTable1.setGridColor(new java.awt.Color(51, 102, 255));
+        jTable1.setGridColor(new java.awt.Color(0, 0, 0));
         jTable1.setSelectionBackground(new java.awt.Color(51, 102, 255));
+        jTable1.getTableHeader().setReorderingAllowed(false);
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
