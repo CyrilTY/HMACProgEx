@@ -6,24 +6,31 @@
 package com.projektex.lebensmitteldatenbank;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.JOptionPane;
-import java.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 
 
 /**
  *
- * @author hamzasincanoglu
+ * @author Amir Mahmood
  */
 public class AdminLebensmittel extends javax.swing.JFrame {
         DbTable db = new DbTable();
     
     public AdminLebensmittel() {
         initComponents();
+        this.setLocationRelativeTo(null);
         showTable();
     }
     
      public void showTable(){
         try{
+            Bildlabel.hide();
+            jTextField2.setText("");
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             model.setRowCount(0);
             db.res = db.stat.executeQuery("SELECT * FROM Artikel");
@@ -33,209 +40,109 @@ public class AdminLebensmittel extends javax.swing.JFrame {
                 String ProduktName = db.res.getString(2);
                 int Kalorien = db.res.getInt(3);
                 int Gewicht = db.res.getInt(4);
-                int Preis = db.res.getInt(5);
+                double Preis = db.res.getDouble(5);
                 
                 Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
                 DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
                 model2.addRow(content);
             }
             
-        }catch(SQLException e) {
-            
         }
+        catch(SQLException e) { }
     }
-     public void orderPreis(){
-        try{
+     
+     /*public void totalCal(int a, int b){
+         
+                float totalcal=0;
+                float cal=a;
+                float wei=b;
+                totalcal=cal/100*wei; 
+                String temp=Float.toString(totalcal);
+                jTextArea1.setText("Gesamt Kalorien:"+temp);
+     }*/
+     
+     public void tabelleAusgabe(String a){
+         try{
+            Bildlabel.hide();
+            jTextField2.setText("");
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             model.setRowCount(0);
             
-            db.res = db.stat.executeQuery("SELECT * FROM Artikel ORDER BY preis");
+            db.res = db.stat.executeQuery(a);
             
             while(db.res.next()){
                 String ID = db.res.getString(1);
                 String ProduktName = db.res.getString(2);
                 int Kalorien = db.res.getInt(3);
                 int Gewicht = db.res.getInt(4);
-                int Preis = db.res.getInt(5);
-                
+                double Preis = db.res.getDouble(5);
+  
                 Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
                 DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
                 model2.addRow(content);
-                
+                //totalCal(Kalorien, Gewicht);
             }
+            
+           
+            
+            
             
         }catch(SQLException e) {
             
         }
+     }
+     
+     public void leereFeld() {jTextField1.setText(""); }
+     
+     public void orderPreis(){
+       tabelleAusgabe("SELECT * FROM Artikel ORDER BY preis");
     }
      
       public void orderdescPreis(){
-        try{
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0);
-            db.res = db.stat.executeQuery("SELECT * FROM Artikel ORDER BY preis desc");
-            
-            while(db.res.next()){
-                String ID = db.res.getString(1);
-                String ProduktName = db.res.getString(2);
-                int Kalorien = db.res.getInt(3);
-                int Gewicht = db.res.getInt(4);
-                int Preis = db.res.getInt(5);
-                
-                Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
-                DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
-                model2.addRow(content);
-            }
-            
-        }catch(SQLException e) {
-            
-        }
+       
+        tabelleAusgabe("SELECT * FROM Artikel ORDER BY preis desc");
     }
 
      public void orderKalorien(){
-        try{
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0);
-            
-            db.res = db.stat.executeQuery("SELECT * FROM Artikel ORDER BY Kalorien");
-            
-            while(db.res.next()){
-                String ID = db.res.getString(1);
-                String ProduktName = db.res.getString(2);
-                int Kalorien = db.res.getInt(3);
-                int Gewicht = db.res.getInt(4);
-                int Preis = db.res.getInt(5);
-                
-                Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
-                DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
-                model2.addRow(content);
-                
-            }
-            
-        }catch(SQLException e) {
-            
-        }
+        tabelleAusgabe("SELECT * FROM Artikel ORDER BY Kalorien");
     } 
      
         public void orderdescKalorien(){
-        try{
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0);
-            db.res = db.stat.executeQuery("SELECT * FROM Artikel ORDER BY Kalorien desc");
-            
-            while(db.res.next()){
-                String ID = db.res.getString(1);
-                String ProduktName = db.res.getString(2);
-                int Kalorien = db.res.getInt(3);
-                int Gewicht = db.res.getInt(4);
-                int Preis = db.res.getInt(5);
-                
-                Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
-                DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
-                model2.addRow(content);
-            }
-            
-        }catch(SQLException e) {
-            
-        }
+        tabelleAusgabe("SELECT * FROM Artikel ORDER BY Kalorien desc");
     }
     
      public void orderGewicht(){
-        try{
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0);
-            
-            db.res = db.stat.executeQuery("SELECT * FROM Artikel ORDER BY Gewicht");
-            
-            while(db.res.next()){
-                String ID = db.res.getString(1);
-                String ProduktName = db.res.getString(2);
-                int Kalorien = db.res.getInt(3);
-                int Gewicht = db.res.getInt(4);
-                int Preis = db.res.getInt(5);
-                
-                Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
-                DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
-                model2.addRow(content);
-                
-            }
-            
-        }catch(SQLException e) {
-            
-        }
+        tabelleAusgabe("SELECT * FROM Artikel ORDER BY Gewicht");
     }
      
      
      public void orderdescGewicht(){
-        try{
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0);
-            db.res = db.stat.executeQuery("SELECT * FROM Artikel ORDER BY Gewicht desc");
-            
-            while(db.res.next()){
-                String ID = db.res.getString(1);
-                String ProduktName = db.res.getString(2);
-                int Kalorien = db.res.getInt(3);
-                int Gewicht = db.res.getInt(4);
-                int Preis = db.res.getInt(5);
-                
-                Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
-                DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
-                model2.addRow(content);
-            }
-            
-        }catch(SQLException e) {
-            
-        }
+        tabelleAusgabe("SELECT * FROM Artikel ORDER BY Gewicht desc");
     }
      
       public void orderProduktname(){
-        try{
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0);
-            
-            db.res = db.stat.executeQuery("SELECT * FROM Artikel ORDER BY ProduktName");
-            
-            while(db.res.next()){
-                String ID = db.res.getString(1);
-                String ProduktName = db.res.getString(2);
-                int Kalorien = db.res.getInt(3);
-                int Gewicht = db.res.getInt(4);
-                int Preis = db.res.getInt(5);
-                
-                Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
-                DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
-                model2.addRow(content);
-                
-            }
-            
-        }catch(SQLException e) {
-            
-        }
+        tabelleAusgabe("SELECT * FROM Artikel ORDER BY ProduktName");
     }
       
       public void orderdescProduktname(){
-        try{
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0);
-            db.res = db.stat.executeQuery("SELECT * FROM Artikel ORDER BY ProduktName desc");
-            
-            while(db.res.next()){
-                String ID = db.res.getString(1);
-                String ProduktName = db.res.getString(2);
-                int Kalorien = db.res.getInt(3);
-                int Gewicht = db.res.getInt(4);
-                int Preis = db.res.getInt(5);
-                
-                Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
-                DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
-                model2.addRow(content);
-            }
-            
-        }catch(SQLException e) {
-            
-        }
+        tabelleAusgabe("SELECT * FROM Artikel ORDER BY ProduktName desc");
     }
+      
+      public void sucheProdukt(){
+        String temp; 
+        temp = jTextField1.getText();
+        
+            if(temp.equals(""))     {showTable();}
+            else                    {tabelleAusgabe("SELECT * FROM Artikel WHERE ProduktName = '"+temp+"'");}
+      }
+      public void showImage(String a) throws IOException
+      {            
+                Bildlabel.hide();
+                BufferedImage temp = ImageIO.read(this.getClass().getResource(a));
+                Bildlabel = new JLabel(new ImageIcon(temp));
+                jPanel1.add(Bildlabel);
+                Bildlabel.setSize(240, 240);
+      }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -249,12 +156,13 @@ public class AdminLebensmittel extends javax.swing.JFrame {
         jSuche = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        jSlider1 = new javax.swing.JSlider();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        Bildlabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -271,19 +179,36 @@ public class AdminLebensmittel extends javax.swing.JFrame {
             }
         });
 
+        jTable1.setBackground(new java.awt.Color(255, 204, 102));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Produktname", "Kalorien", "Gewicht", "Preis"
+                "ID", "Produktname", "Kalorien (auf 100g)", "Gewicht", "Preis"
             }
         ));
+        jTable1.setGridColor(new java.awt.Color(0, 0, 0));
+        jTable1.setSelectionBackground(new java.awt.Color(51, 102, 255));
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(0).setPreferredWidth(15);
+            jTable1.getColumnModel().getColumn(1).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setPreferredWidth(80);
+            jTable1.getColumnModel().getColumn(2).setResizable(false);
+            jTable1.getColumnModel().getColumn(2).setPreferredWidth(100);
+            jTable1.getColumnModel().getColumn(3).setResizable(false);
+            jTable1.getColumnModel().getColumn(3).setPreferredWidth(50);
+            jTable1.getColumnModel().getColumn(4).setResizable(false);
+            jTable1.getColumnModel().getColumn(4).setPreferredWidth(30);
+        }
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bitte auswählen", "Produktname", "Kalorien", "Gewicht", "Preis" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -300,6 +225,18 @@ public class AdminLebensmittel extends javax.swing.JFrame {
         });
 
         jLabel1.setText("Sortieren nach");
+
+        jLabel2.setText("Gesamt Kalorien:");
+
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+        jPanel1.add(Bildlabel, new java.awt.GridBagConstraints());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -319,66 +256,45 @@ public class AdminLebensmittel extends javax.swing.JFrame {
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSuche, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jSuche)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSuche))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jScrollPane2)))
-                .addGap(25, 25, 25))
+                            .addComponent(jLabel2)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(213, 213, 213))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
+                .addGap(46, 46, 46))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jSucheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSucheActionPerformed
-        String temp; 
-        temp = jTextField1.getText();
-        System.out.println("Zu suchendes Wort: "+temp);
-                
-        try{
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0);
-            db.res = db.stat.executeQuery("SELECT * FROM Artikel WHERE ProduktName = '"+temp+"'");
-            
-            
-            while(db.res.next()){
-                String ID = db.res.getString(1);
-                String ProduktName = db.res.getString(2);
-                int Kalorien = db.res.getInt(3);
-                int Gewicht = db.res.getInt(4);
-                int Preis = db.res.getInt(5);
-                
-                Object[] content = {ID, ProduktName, Kalorien, Gewicht, Preis};
-                DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
-                model2.addRow(content);
-            }
-            
-        }catch(SQLException e) {
-            
-        }
-        
+      sucheProdukt();
     }//GEN-LAST:event_jSucheActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -389,57 +305,58 @@ public class AdminLebensmittel extends javax.swing.JFrame {
         
         if (temp.contains("Preis") && temp2.contains("aufsteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();   
         orderPreis();
         }
         else if (temp.contains("Bitte auswählen") && temp2.contains("absteigend"))
         {
-        jTextField1.setText("");  
+        leereFeld(); 
         }
         else if (temp.contains("Bitte auswählen") && temp2.contains("aufsteigend"))
         {
-        jTextField1.setText("");  
+        leereFeld();  
         }
         else if (temp.contains("Preis") && temp2.contains("absteigend"))
         {
-        jTextField1.setText("");
+        leereFeld();;
         orderdescPreis();
         }
         else if (temp.contains("Produktname") && temp2.contains("aufsteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();    
         orderProduktname();
         }
         else if (temp.contains("Produktname") && temp2.contains("absteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();    
         orderdescProduktname();
         }
         else if (temp.contains("Kalorien") && temp2.contains("aufsteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();    
         orderKalorien();
         }
         else if (temp.contains("Kalorien") && temp2.contains("absteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();    
         orderdescKalorien();
         }
         
         else if (temp.contains("Gewicht") && temp2.contains("aufsteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();   
         orderGewicht();
         }
         else if (temp.contains("Gewicht") && temp2.contains("absteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();   
         orderdescGewicht();
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
+            sucheProdukt(); 
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
@@ -450,54 +367,120 @@ public class AdminLebensmittel extends javax.swing.JFrame {
         
         if (temp.contains("Preis") && temp2.contains("aufsteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();    
         orderPreis();
         }
         else if (temp.contains("Preis") && temp2.contains("absteigend"))
         {
-        jTextField1.setText("");
+        leereFeld();
         orderdescPreis();
         }
          else if (temp.contains("Bitte auswählen") && temp2.contains("absteigend"))
         {
-        jTextField1.setText("");  
+        leereFeld(); 
         }
         else if (temp.contains("Bitte auswählen") && temp2.contains("aufsteigend"))
         {
-        jTextField1.setText("");  
+        leereFeld();  
         }
         else if (temp.contains("Produktname") && temp2.contains("aufsteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();   
         orderProduktname();
         }
         else if (temp.contains("Produktname") && temp2.contains("absteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();   
         orderdescProduktname();
         }
         else if (temp.contains("Kalorien") && temp2.contains("aufsteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();    
         orderKalorien();
         }
         else if (temp.contains("Kalorien") && temp2.contains("absteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();    
         orderdescKalorien();
         }
         
         else if (temp.contains("Gewicht") && temp2.contains("aufsteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();    
         orderGewicht();
         }
         else if (temp.contains("Gewicht") && temp2.contains("absteigend"))
         {
-        jTextField1.setText("");    
+        leereFeld();    
         orderdescGewicht();
         }
     }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // Meths
+         /*BufferedImage test = ImageIO.read(this.getClass().getResource("Snickers.jpg"));
+                JLabel test2 = new JLabel(new ImageIcon(test));
+                jPanel1.add(test2);
+                test2.setSize(240, 240);*/
+         
+        if(jTable1.getSelectedRow()> -1){
+            try {
+                String a = jTable1.getValueAt(jTable1.getSelectedRow(),1).toString();
+                showImage("Bilder/"+a+".jpg");
+                
+                /* Amirs
+                if(jTable1.getSelectedRow() == 1)
+                {
+                showImage("Bilder/Frischkäse_2.jpg");    
+                }
+                else if(jTable1.getSelectedRow() == 2)
+                {
+                showImage("Bilder/Magerquark_3.jpg");    
+                }
+                else if(jTable1.getSelectedRow() == 3)
+                {
+                showImage("Bilder/Ei_4.jpg");    
+                }
+                else if(jTable1.getSelectedRow() == 4)
+                {
+                showImage("Bilder/Snickers_5.jpg");    
+                }
+                else if(jTable1.getSelectedRow() == 5)
+                {
+                showImage("Bilder/Eistee_6.jpg");    
+                }
+                else if(jTable1.getSelectedRow() == 6)
+                {
+                showImage("Bilder/Sucuk_7.jpg");    
+                }
+                else if(jTable1.getSelectedRow() == 7)
+                {
+                showImage("Bilder/Kartoffel_8.jpg");    
+                }
+                else if(jTable1.getSelectedRow() == 8)
+                {
+                showImage("Bilder/Nudeln_9.jpg");    
+                }
+                */
+                
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            
+                
+            String cal=jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString();
+            String wei=jTable1.getValueAt(jTable1.getSelectedRow(), 3).toString();
+            Double cal1=Double.valueOf(cal);
+            Double wei1=Double.valueOf(wei);
+            Double Result=cal1/100*wei1;
+            String stringresult = Double.toString(Math.round(Result));
+            jTextField2.setText(stringresult +" kcal");      
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -535,23 +518,17 @@ public class AdminLebensmittel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Bildlabel;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSlider jSlider1;
     private javax.swing.JButton jSuche;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 
-    private void setText(String toString) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private boolean contains(String preis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
