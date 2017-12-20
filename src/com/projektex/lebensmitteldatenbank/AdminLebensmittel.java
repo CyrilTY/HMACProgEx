@@ -8,9 +8,13 @@ import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 
 
 
@@ -20,6 +24,7 @@ import javax.swing.JLabel;
  */
 public class AdminLebensmittel extends javax.swing.JFrame {
         DbTable db = new DbTable();
+
     
     public AdminLebensmittel() {
         initComponents();
@@ -163,6 +168,17 @@ public class AdminLebensmittel extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         Bildlabel = new javax.swing.JLabel();
+        jloesch = new javax.swing.JButton();
+        jrefresh = new javax.swing.JButton();
+        jadd = new javax.swing.JButton();
+        jPN = new javax.swing.JTextField();
+        jK = new javax.swing.JTextField();
+        jG = new javax.swing.JTextField();
+        jP = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -234,9 +250,43 @@ public class AdminLebensmittel extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setLayout(new java.awt.GridBagLayout());
         jPanel1.add(Bildlabel, new java.awt.GridBagConstraints());
+
+        jloesch.setText("Datensatz löschen");
+        jloesch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jloeschActionPerformed(evt);
+            }
+        });
+
+        jrefresh.setText("Datenbank aktuallisieren");
+        jrefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrefreshActionPerformed(evt);
+            }
+        });
+
+        jadd.setText("Datensatz hinzufügen");
+        jadd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jaddActionPerformed(evt);
+            }
+        });
+
+        jP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Produktname:");
+
+        jLabel4.setText("Kalorien:");
+
+        jLabel5.setText("Gewicht:");
+
+        jLabel6.setText("Preis:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -244,25 +294,46 @@ public class AdminLebensmittel extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jloesch)
+                        .addGap(91, 91, 91)
+                        .addComponent(jrefresh)
+                        .addGap(52, 52, 52))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(29, 29, 29)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jSuche, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSuche, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jG, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jK, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jPN, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel5))))
+                    .addComponent(jadd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
@@ -280,21 +351,43 @@ public class AdminLebensmittel extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(213, 213, 213))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
-                .addGap(46, 46, 46))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jPN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addGap(90, 90, 90))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jrefresh)
+                            .addComponent(jloesch)
+                            .addComponent(jadd))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jSucheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSucheActionPerformed
-      sucheProdukt();
+        sucheProdukt();
     }//GEN-LAST:event_jSucheActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -355,7 +448,6 @@ public class AdminLebensmittel extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
             sucheProdukt(); 
     }//GEN-LAST:event_jTextField1ActionPerformed
 
@@ -417,55 +509,25 @@ public class AdminLebensmittel extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // Meths
-         /*BufferedImage test = ImageIO.read(this.getClass().getResource("Snickers.jpg"));
-                JLabel test2 = new JLabel(new ImageIcon(test));
-                jPanel1.add(test2);
-                test2.setSize(240, 240);*/
          
         if(jTable1.getSelectedRow()> -1){
             try {
                 String a = jTable1.getValueAt(jTable1.getSelectedRow(),1).toString();
+                String tempid = jTable1.getValueAt(jTable1.getSelectedRow(),0).toString();
+                Integer id = Integer.valueOf(tempid);
+                if(id < 72)
+                {    
                 showImage("Bilder/"+a+".jpg");
-                
-                /* Amirs
-                if(jTable1.getSelectedRow() == 1)
-                {
-                showImage("Bilder/Frischkäse_2.jpg");    
                 }
-                else if(jTable1.getSelectedRow() == 2)
+                else
                 {
-                showImage("Bilder/Magerquark_3.jpg");    
+                showImage("Bilder/Noimage.jpg");
                 }
-                else if(jTable1.getSelectedRow() == 3)
-                {
-                showImage("Bilder/Ei_4.jpg");    
-                }
-                else if(jTable1.getSelectedRow() == 4)
-                {
-                showImage("Bilder/Snickers_5.jpg");    
-                }
-                else if(jTable1.getSelectedRow() == 5)
-                {
-                showImage("Bilder/Eistee_6.jpg");    
-                }
-                else if(jTable1.getSelectedRow() == 6)
-                {
-                showImage("Bilder/Sucuk_7.jpg");    
-                }
-                else if(jTable1.getSelectedRow() == 7)
-                {
-                showImage("Bilder/Kartoffel_8.jpg");    
-                }
-                else if(jTable1.getSelectedRow() == 8)
-                {
-                showImage("Bilder/Nudeln_9.jpg");    
-                }
-                */
-                
+                    
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
+            
             
                 
             String cal=jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString();
@@ -481,6 +543,52 @@ public class AdminLebensmittel extends javax.swing.JFrame {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jloeschActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jloeschActionPerformed
+        if(jTable1.getSelectedRow()== -1)
+        {
+            JOptionPane.showMessageDialog(null, "Choose first a Dataset", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        String temp = jTable1.getValueAt(jTable1.getSelectedRow(),0).toString();
+            try {
+                db.stat.executeUpdate("DELETE from Artikel WHERE ID = '"+temp+"'");
+                showTable();
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(AdminLebensmittel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_jloeschActionPerformed
+
+    private void jrefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrefreshActionPerformed
+            showTable();
+    }//GEN-LAST:event_jrefreshActionPerformed
+
+    private void jaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jaddActionPerformed
+
+        String a = jPN.getText();
+        String b = jK.getText();
+        String c = jG.getText();
+        String d = jP.getText();
+        
+        if(a.equals("") || b.equals("") || c.equals("") || d.equals(""))
+        {
+             JOptionPane.showMessageDialog(null, "Type something in Produktname, Kalorien, Gewicht and Preis", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+
+        try {
+            db.stat.executeUpdate("INSERT INTO Artikel (ProduktName, Kalorien, Gewicht, Preis) VALUES ('"+a+"',"+b+","+c+","+d+")");
+            showTable();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminLebensmittel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_jaddActionPerformed
+
+    private void jPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPActionPerformed
 
     /**
      * @param args the command line arguments
@@ -521,14 +629,25 @@ public class AdminLebensmittel extends javax.swing.JFrame {
     private javax.swing.JLabel Bildlabel;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JTextField jG;
+    private javax.swing.JTextField jK;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JTextField jP;
+    private javax.swing.JTextField jPN;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jSuche;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton jadd;
+    private javax.swing.JButton jloesch;
+    private javax.swing.JButton jrefresh;
     // End of variables declaration//GEN-END:variables
 
 }
