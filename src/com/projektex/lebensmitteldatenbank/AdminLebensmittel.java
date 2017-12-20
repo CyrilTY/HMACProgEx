@@ -574,7 +574,10 @@ public class AdminLebensmittel extends javax.swing.JFrame {
     }//GEN-LAST:event_jrefreshActionPerformed
 
     private void jaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jaddActionPerformed
-
+         Bildlabel.hide();
+         jTextField2.setText("");
+        
+        
         String a = jPN.getText();
         String b = jK.getText();
         String c = jG.getText();
