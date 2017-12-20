@@ -234,7 +234,6 @@ public class GuestLebensmittel extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setLayout(new java.awt.GridBagLayout());
         jPanel1.add(Bildlabel, new java.awt.GridBagConstraints());
 

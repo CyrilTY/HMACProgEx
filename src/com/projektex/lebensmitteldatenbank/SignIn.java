@@ -39,7 +39,6 @@ public class SignIn extends javax.swing.JFrame {
         jLabel3Password = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
         jButton1SignUp = new javax.swing.JButton();
-        jLabel2Already = new javax.swing.JLabel();
         jButton1Cancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,7 +51,6 @@ public class SignIn extends javax.swing.JFrame {
 
         jPanel1Links.setBackground(new java.awt.Color(48, 100, 153));
 
-        jLabel1UserIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cyril\\Documents\\NetBeansProjects\\HMACProgEx\\src\\com\\projektex\\lebensmitteldatenbank\\imag\\LoginSignIn.png")); // NOI18N
         jLabel1UserIcon.setText("jLabel1");
 
         jLabel1MembersLogin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -138,14 +136,6 @@ public class SignIn extends javax.swing.JFrame {
         });
         jPanel2Unten.add(jButton1SignUp);
         jButton1SignUp.setBounds(480, 280, 90, 40);
-
-        jLabel2Already.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        jLabel2Already.setForeground(new java.awt.Color(0, 102, 204));
-        jLabel2Already.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2Already.setText("Already Member Register click here to Login");
-        jLabel2Already.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2Unten.add(jLabel2Already);
-        jLabel2Already.setBounds(340, 340, 240, 16);
 
         jButton1Cancel.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jButton1Cancel.setText("Cancel");
@@ -257,7 +247,6 @@ public class SignIn extends javax.swing.JFrame {
     private javax.swing.JButton jButton1SignUp;
     private javax.swing.JLabel jLabel1MembersLogin;
     private javax.swing.JLabel jLabel1UserIcon;
-    private javax.swing.JLabel jLabel2Already;
     private javax.swing.JLabel jLabel2SignUp;
     private javax.swing.JLabel jLabel3Password;
     private javax.swing.JLabel jLabel3Username;
