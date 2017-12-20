@@ -513,9 +513,19 @@ public class AdminLebensmittel extends javax.swing.JFrame {
         if(jTable1.getSelectedRow()> -1){
             try {
                 String a = jTable1.getValueAt(jTable1.getSelectedRow(),1).toString();
-                String tempid = jTable1.getValueAt(jTable1.getSelectedRow(),0).toString();
-                Integer id = Integer.valueOf(tempid);
-                if(id < 72)
+                
+                if(a.equals("Apfel") || a.equals("Ayran") || a.equals("Baguette") || a.equals("Birne")|| a.equals("Brezel")|| a.equals("Bulgur")|| a.equals("Butter")
+                   || a.equals("Champignons")|| a.equals("Cola")|| a.equals("Croissant")|| a.equals("Datteln")|| a.equals("Döner")|| a.equals("Ei")
+                   || a.equals("Eiweißpulver")|| a.equals("Erdnuesse")|| a.equals("Falafel")|| a.equals("Fladenbrot")|| a.equals("Frikadelle")|| a.equals("Garnelen")
+                   || a.equals("Grapefruit")|| a.equals("Hähnchen")|| a.equals("Hamburger")|| a.equals("Honig")|| a.equals("Joghurt")|| a.equals("Karotten")
+                   || a.equals("Kartoffeln")|| a.equals("Käsekuchen")|| a.equals("Kefir")|| a.equals("Ketchup")|| a.equals("Knoblauch")|| a.equals("Kokosmilch")
+                   || a.equals("Lasagne")|| a.equals("Limette")|| a.equals("Limonade")|| a.equals("Mais")|| a.equals("Mandarine")|| a.equals("Mandeln")|| a.equals("Mango")
+                   || a.equals("Marzipan")|| a.equals("Milch")|| a.equals("Milchreis")|| a.equals("Milchschnitte")|| a.equals("Mortadella")|| a.equals("Müsli")|| a.equals("Nougat")
+                   || a.equals("Nutella")|| a.equals("Oliven, grün")|| a.equals("Oliven, schwarz")|| a.equals("Olivenöl")|| a.equals("Orange")|| a.equals("Papaya")
+                   || a.equals("Peperoni")|| a.equals("Pizza")|| a.equals("Popcorn")|| a.equals("Puderzucker")|| a.equals("Quark, Magerquark")|| a.equals("Radicchio")
+                   || a.equals("Reiswaffel")|| a.equals("Rindswurst")|| a.equals("Roggenbrot")|| a.equals("Salami")|| a.equals("Salz")|| a.equals("Sardinen")|| a.equals("Seelachs")
+                   || a.equals("Spaghetti")|| a.equals("Stevia")|| a.equals("Studentenfutter")|| a.equals("Thunfisch")|| a.equals("Vollkornbrot")|| a.equals("Zartbitterschokolade")
+                   || a.equals("Zucker"))
                 {    
                 showImage("Bilder/"+a+".jpg");
                 }
