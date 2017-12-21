@@ -6,7 +6,6 @@
 package com.projektex.lebensmitteldatenbank;
 
 import java.awt.HeadlessException;
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;

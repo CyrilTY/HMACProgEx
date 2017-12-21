@@ -33,6 +33,7 @@ public class GuestLebensmittel extends javax.swing.JFrame {
         try{
             Bildlabel.hide();
             jTextField2.setText("");
+            jTextField1.setText("");
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             model.setRowCount(0);
             db.res = db.stat.executeQuery("SELECT * FROM Artikel");
@@ -223,15 +224,15 @@ public class GuestLebensmittel extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(15);
+            jTable1.getColumnModel().getColumn(0).setPreferredWidth(3);
             jTable1.getColumnModel().getColumn(1).setResizable(false);
             jTable1.getColumnModel().getColumn(1).setPreferredWidth(80);
             jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setPreferredWidth(100);
+            jTable1.getColumnModel().getColumn(2).setPreferredWidth(85);
             jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setPreferredWidth(50);
+            jTable1.getColumnModel().getColumn(3).setPreferredWidth(75);
             jTable1.getColumnModel().getColumn(4).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setPreferredWidth(30);
+            jTable1.getColumnModel().getColumn(4).setPreferredWidth(10);
         }
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bitte auswählen", "Produktname", "Kalorien", "Gewicht", "Preis" }));
