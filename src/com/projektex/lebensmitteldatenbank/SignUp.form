@@ -71,7 +71,7 @@
             <Component class="javax.swing.JLabel" name="jLabel1images1Links">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Cyril\Documents\NetBeansProjects\HMACProgEx\src\com\projektex\lebensmitteldatenbank\imag\images1Links.jpg"/>
+                  <Image iconType="3" name="/com/projektex/lebensmitteldatenbank/imag/images1Links.jpg"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -184,7 +184,7 @@
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Cyril\Documents\NetBeansProjects\HMACProgEx\src\com\projektex\lebensmitteldatenbank\imag\images2Rechts.jpg"/>
+                  <Image iconType="3" name="/com/projektex/lebensmitteldatenbank/imag/images2Rechts.jpg"/>
                 </Property>
               </Properties>
               <Constraints>

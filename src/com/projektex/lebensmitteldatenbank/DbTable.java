@@ -13,29 +13,30 @@ import javax.swing.JOptionPane;
 
 
 public final class DbTable {
-    public Connection con = null;
-    public Statement stat = null;
-    public ResultSet res = null;
+    public Connection con;
+    public Statement stat;
+    public ResultSet res;
     
-    public DbTable(){
-        systemConnection();
+    public DbTable(String name, char[] password){
+        systemConnection(name, password);
     }
     
     
-    public void systemConnection(){
+    public void systemConnection(String name, char[] password){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con= (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/lebensmittel?verifyServerCertificate=false&useSSL=true", "root" , "5273");
+            String pw = new String(password);
+            con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/lebensmittel?verifyServerCertificate=false&useSSL=true", name , pw);
             stat = (Statement) con.createStatement();
-            
-            
         }catch (ClassNotFoundException | SQLException e){
             JOptionPane.showMessageDialog(null, "Error");
         }
         
     }
-    
-
+        
+    public Connection getConnection(){
+        return con;
+    }
     
     public static void main(String[] args) {
         

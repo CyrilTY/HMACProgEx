@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.projektex.lebensmitteldatenbank;
+import static com.projektex.lebensmitteldatenbank.MainStarter.db;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 import java.awt.image.BufferedImage;
@@ -23,7 +24,7 @@ import javax.swing.JOptionPane;
  * @author Amir Mahmood
  */
 public class AdminLebensmittel extends javax.swing.JFrame {
-        DbTable db = new DbTable();
+        //DbTable db = new DbTable();
 
     
     public AdminLebensmittel() {

@@ -51,6 +51,7 @@ public class SignIn extends javax.swing.JFrame {
 
         jPanel1Links.setBackground(new java.awt.Color(48, 100, 153));
 
+        jLabel1UserIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/projektex/lebensmitteldatenbank/imag/LoginSignIn.png"))); // NOI18N
         jLabel1UserIcon.setText("jLabel1");
 
         jLabel1MembersLogin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N

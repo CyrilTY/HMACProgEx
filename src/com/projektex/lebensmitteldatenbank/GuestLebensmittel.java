@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.projektex.lebensmitteldatenbank;
+import static com.projektex.lebensmitteldatenbank.MainStarter.db;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 import java.awt.image.BufferedImage;
@@ -20,7 +21,7 @@ import javax.swing.JOptionPane;
  * @author Amir Mahmood
  */
 public class GuestLebensmittel extends javax.swing.JFrame {
-        DbTable db = new DbTable();
+        //db = new DbTable();
     
     public GuestLebensmittel() {
         initComponents();
@@ -249,7 +250,7 @@ public class GuestLebensmittel extends javax.swing.JFrame {
 
         jLabel1.setText("Sortieren nach");
 
-        jLabel2.setText("Gesamt vom ausgewählten Produkt Kalorien:");
+        jLabel2.setText("Gesamtkalorien vom ausgewählten Produkt :");
 
         jTextField2.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextField2.setEnabled(false);
@@ -349,6 +350,12 @@ public class GuestLebensmittel extends javax.swing.JFrame {
         jumrechner.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jumrechnerActionPerformed(evt);
+            }
+        });
+
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
             }
         });
 
@@ -488,10 +495,11 @@ public class GuestLebensmittel extends javax.swing.JFrame {
                             .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jMverrichten)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel7)))
                         .addGap(27, 27, 27)
                         .addComponent(jMealf))
                     .addGroup(layout.createSequentialGroup()
@@ -714,6 +722,11 @@ public class GuestLebensmittel extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jdeleteCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jdeleteCartActionPerformed
+        if(jTable2.getSelectedRow()== -1)
+        {
+            JOptionPane.showMessageDialog(null, "Select a Dataset from the Warenkorb table", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();    
         String temp1=jTable2.getValueAt(jTable2.getSelectedRow(), 3).toString();
         model.removeRow(jTable2.getSelectedRow());
@@ -735,6 +748,11 @@ public class GuestLebensmittel extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jaddmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jaddmActionPerformed
+         if(jTable2.getSelectedRow()== -1)
+        {
+            JOptionPane.showMessageDialog(null, "Select a Dataset from the Warenkorb table", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
         if(jTable2.getSelectedRow()>-1)
         {
             String pa = jTable2.getValueAt(jTable2.getSelectedRow(),0).toString();
@@ -750,6 +768,11 @@ public class GuestLebensmittel extends javax.swing.JFrame {
     }//GEN-LAST:event_jaddmActionPerformed
 
     private void jumrechnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jumrechnerActionPerformed
+         if(jTable3.getSelectedRow()== -1)
+        {
+            JOptionPane.showMessageDialog(null, "Select a Dataset from the Mahlzeit table", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
         if(jTable3.getSelectedRow()>-1)
         {
              String pa = jTable3.getValueAt(jTable3.getSelectedRow(),0).toString();
@@ -796,9 +819,18 @@ public class GuestLebensmittel extends javax.swing.JFrame {
     }//GEN-LAST:event_jMealfActionPerformed
 
     private void jdeleteMealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jdeleteMealActionPerformed
+         if(jTable3.getSelectedRow()== -1)
+        {
+            JOptionPane.showMessageDialog(null, "Select a Dataset from the Mahlzeit table", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
             DefaultTableModel model = (DefaultTableModel) jTable3.getModel();    
             model.removeRow(jTable3.getSelectedRow());
     }//GEN-LAST:event_jdeleteMealActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
 
     /**
      * @param args the command line arguments

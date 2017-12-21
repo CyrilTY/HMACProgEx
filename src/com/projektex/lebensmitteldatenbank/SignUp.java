@@ -54,7 +54,7 @@ public class SignUp extends javax.swing.JFrame {
         jPanel2Links.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2Links.setLayout(null);
 
-        jLabel1images1Links.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cyril\\Documents\\NetBeansProjects\\HMACProgEx\\src\\com\\projektex\\lebensmitteldatenbank\\imag\\images1Links.jpg")); // NOI18N
+        jLabel1images1Links.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/projektex/lebensmitteldatenbank/imag/images1Links.jpg"))); // NOI18N
         jPanel2Links.add(jLabel1images1Links);
         jLabel1images1Links.setBounds(0, 70, 240, 210);
 
@@ -107,7 +107,7 @@ public class SignUp extends javax.swing.JFrame {
         jPanel1Rechts.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1Rechts.setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Cyril\\Documents\\NetBeansProjects\\HMACProgEx\\src\\com\\projektex\\lebensmitteldatenbank\\imag\\images2Rechts.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/projektex/lebensmitteldatenbank/imag/images2Rechts.jpg"))); // NOI18N
         jPanel1Rechts.add(jLabel1);
         jLabel1.setBounds(10, 70, 220, 200);
 
