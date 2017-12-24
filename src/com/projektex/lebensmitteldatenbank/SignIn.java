@@ -32,6 +32,7 @@ public class SignIn extends javax.swing.JFrame {
         jPanel2Unten = new javax.swing.JPanel();
         jPanel1Links = new javax.swing.JPanel();
         jLabel1UserIcon = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2SignUp = new javax.swing.JLabel();
         jTextField1Username = new javax.swing.JTextField();
         jLabel3Username = new javax.swing.JLabel();
@@ -53,13 +54,23 @@ public class SignIn extends javax.swing.JFrame {
         jLabel1UserIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/projektex/lebensmitteldatenbank/imag/LoginSignIn.png"))); // NOI18N
         jLabel1UserIcon.setText("jLabel1");
 
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 26)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Admin Login");
+
         javax.swing.GroupLayout jPanel1LinksLayout = new javax.swing.GroupLayout(jPanel1Links);
         jPanel1Links.setLayout(jPanel1LinksLayout);
         jPanel1LinksLayout.setHorizontalGroup(
             jPanel1LinksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1LinksLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel1UserIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1LinksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1LinksLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(jLabel1UserIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1LinksLayout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel1LinksLayout.setVerticalGroup(
@@ -67,11 +78,13 @@ public class SignIn extends javax.swing.JFrame {
             .addGroup(jPanel1LinksLayout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addComponent(jLabel1UserIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addContainerGap(107, Short.MAX_VALUE))
         );
 
         jPanel2Unten.add(jPanel1Links);
-        jPanel1Links.setBounds(0, 0, 300, 391);
+        jPanel1Links.setBounds(0, 0, 300, 410);
 
         jLabel2SignUp.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
         jLabel2SignUp.setForeground(new java.awt.Color(102, 102, 102));
@@ -142,14 +155,14 @@ public class SignIn extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2Unten, javax.swing.GroupLayout.DEFAULT_SIZE, 601, Short.MAX_VALUE)
+            .addComponent(jPanel2Unten, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2Unten, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2Unten, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(601, 391));
+        setSize(new java.awt.Dimension(632, 409));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -234,6 +247,7 @@ public class SignIn extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1Cancel;
     private javax.swing.JButton jButton1SignUp;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel1UserIcon;
     private javax.swing.JLabel jLabel2SignUp;
     private javax.swing.JLabel jLabel3Password;

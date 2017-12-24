@@ -298,22 +298,22 @@ public class AdminLebensmittel extends javax.swing.JFrame {
         jRahmenLayout.setHorizontalGroup(
             jRahmenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jRahmenLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jRahmenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(17, 17, 17)
+                .addGroup(jRahmenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jadd, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
                     .addGroup(jRahmenLayout.createSequentialGroup()
                         .addGroup(jRahmenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addGroup(jRahmenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jK, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPN, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jG, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jP, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jadd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                            .addComponent(jPN, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                            .addComponent(jK)
+                            .addComponent(jG)
+                            .addComponent(jP))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jRahmenLayout.setVerticalGroup(
             jRahmenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,7 +336,7 @@ public class AdminLebensmittel extends javax.swing.JFrame {
                 .addGroup(jRahmenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGap(94, 94, 94))
+                .addContainerGap())
         );
 
         jPanel2.setBackground(new java.awt.Color(51, 102, 255));
@@ -356,7 +356,7 @@ public class AdminLebensmittel extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jloesch, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                .addComponent(jloesch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -416,11 +416,12 @@ public class AdminLebensmittel extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jrefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jrefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -428,10 +429,11 @@ public class AdminLebensmittel extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        jLabel2.setText("Gesamt Kalorien:");
+        jLabel2.setText("Gesamtkalorien vom Produkt:");
 
         jTextField2.setBackground(new java.awt.Color(204, 255, 255));
         jTextField2.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -443,24 +445,29 @@ public class AdminLebensmittel extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField2)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(20, 20, 20))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(7, 7, 7)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.GridBagLayout());
         jPanel1.add(Bildlabel, new java.awt.GridBagConstraints());
 
@@ -469,9 +476,9 @@ public class AdminLebensmittel extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(33, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addGap(37, 37, 37))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -494,15 +501,15 @@ public class AdminLebensmittel extends javax.swing.JFrame {
                         .addComponent(jSuche, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE))
                     .addComponent(jScrollPane1)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jRahmen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jabmelden, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -513,21 +520,21 @@ public class AdminLebensmittel extends javax.swing.JFrame {
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jSuche))
                     .addComponent(jabmelden, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jRahmen, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1)))
-                .addGap(25, 25, 25))
+                        .addComponent(jRahmen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
@@ -735,14 +742,77 @@ public class AdminLebensmittel extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(null, "Type something in Produktname, Kalorien, Gewicht and Preis", "Error", JOptionPane.ERROR_MESSAGE);
         }
         
+        
+        if(a.contains("1") || a.contains("2") || a.contains("3") || a.contains("4") || a.contains("5") || a.contains("6") || a.contains("7") || a.contains("8")
+           || a.contains("9") || a.contains("0"))
+        {
+            JOptionPane.showMessageDialog(null, "You can´t type numbers in Produktname", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else if(d.contains("-"))
+        {
+             JOptionPane.showMessageDialog(null, "You can´t type negative numbers in Preis", "Error", JOptionPane.ERROR_MESSAGE);   
+        }
+        else
+        {
+            try {
+            db.stat.executeUpdate("INSERT INTO Artikel (ProduktName, Kalorien, Gewicht, Preis) VALUES ('"+a+"',"+b+","+c+","+d+")");
+            showTable();
 
-        try {
+            } catch (SQLException ex) {
+            Logger.getLogger(AdminLebensmittel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        if(b.contains("A") || b.contains("B") || b.contains("C") || b.contains("D") || b.contains("E") || b.contains("F") || b.contains("G") || b.contains("H") || b.contains("I") ||
+           b.contains("J") || b.contains("K")|| b.contains("L")|| b.contains("M")|| b.contains("N")|| b.contains("O")|| b.contains("P")|| b.contains("Q")|| b.contains("R") ||
+           b.contains("S") || b.contains("T")|| b.contains("U")|| b.contains("V")|| b.contains("W") || b.contains("X") || b.contains("Y") || b.contains("Z") || b.contains("a") ||
+           b.contains("b") || b.contains("c") || b.contains("d") || b.contains("e") || b.contains("f") || b.contains("g") || b.contains("h") || b.contains("i") ||
+           b.contains("j") || b.contains("k")|| b.contains("l")|| b.contains("m")|| b.contains("n")|| b.contains("o")|| b.contains("p")|| b.contains("q")|| b.contains("r") ||
+           b.contains("s") || b.contains("t")|| b.contains("u")|| b.contains("v")|| b.contains("w") || b.contains("x") || b.contains("y") || b.contains("z") || b.contains("!") ||
+           b.contains("§") || b.contains("$") || b.contains("%") || b.contains("&") || b.contains("/") || b.contains("(") || b.contains(")") || b.contains("=") || b.contains("?") ||
+           b.contains("ß") || b.contains("+") || b.contains("*") || b.contains("-") || b.contains(",") || b.contains(";") || b.contains(":") || b.contains("<") || b.contains(">") ||
+           b.contains("|") || b.contains("#") || b.contains("[") || b.contains("]") || b.contains("."))
+        {
+            JOptionPane.showMessageDialog(null, "You can only type numbers in Kalorien", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        if(c.contains("A") || c.contains("B") || c.contains("C") || c.contains("D") || c.contains("E") || c.contains("F") || c.contains("G") || c.contains("H") || c.contains("I") ||
+           c.contains("J") || c.contains("K")|| c.contains("L")|| c.contains("M")|| c.contains("N")|| c.contains("O")|| c.contains("P")|| c.contains("Q")|| c.contains("R") ||
+           c.contains("S") || c.contains("T")|| c.contains("U")|| c.contains("V")|| c.contains("W") || c.contains("X") || c.contains("Y") || c.contains("Z") || c.contains("a") ||
+           c.contains("b") || c.contains("c") || c.contains("d") || c.contains("e") || c.contains("f") || c.contains("g") || c.contains("h") || c.contains("i") ||
+           c.contains("j") || c.contains("k")|| c.contains("l")|| c.contains("m")|| c.contains("n")|| c.contains("o")|| c.contains("p")|| c.contains("q")|| c.contains("r") ||
+           c.contains("s") || c.contains("t")|| c.contains("u")|| c.contains("v")|| c.contains("w") || c.contains("x") || c.contains("y") || c.contains("z") || c.contains("!") ||
+           c.contains("§") || c.contains("$") || c.contains("%") || c.contains("&") || c.contains("/") || c.contains("(") || c.contains(")") || c.contains("=") || c.contains("?") ||
+           c.contains("ß") || c.contains("+") || c.contains("*") || c.contains("-") || c.contains(",") || c.contains(";") || c.contains(":") || c.contains("<") || c.contains(">") ||
+           c.contains("|") || c.contains("#") || c.contains("[") || c.contains("]") || c.contains("."))
+        {
+            JOptionPane.showMessageDialog(null, "You can only type numbers in Gewicht", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+         if(d.contains("A") || d.contains("B") || d.contains("C") || d.contains("D") || d.contains("E") || d.contains("F") || d.contains("G") || d.contains("H")|| d.contains("I")||
+            d.contains("J") || d.contains("K") || d.contains("L") || d.contains("M") || d.contains("N") || d.contains("O") || d.contains("P") || d.contains("Q")|| d.contains("R")||
+            d.contains("S") || d.contains("T") || d.contains("U") || d.contains("V") || d.contains("W") || d.contains("X") || d.contains("Y") || d.contains("Z")|| d.contains("a")||
+            d.contains("b") || d.contains("c") || d.contains("d") || d.contains("e") || d.contains("f") || d.contains("g") || d.contains("h") || d.contains("i")|| d.contains("j")||
+            d.contains("k") || d.contains("l") || d.contains("m") || d.contains("n") || d.contains("o") || d.contains("p") || d.contains("q") || d.contains("r")|| d.contains("s")||
+            d.contains("t") || d.contains("u") || d.contains("v") || d.contains("w") || d.contains("x") || d.contains("y") || d.contains("z") || d.contains("!")|| d.contains("§")||
+            d.contains("$") || d.contains("%") || d.contains("&") || d.contains("/") || d.contains("(") || d.contains(")") || d.contains("=") || d.contains("?")|| d.contains("ß")||
+            d.contains("*") || d.contains(";") || d.contains(":") || d.contains("<") || d.contains(">") || d.contains("|") || d.contains("#") || d.contains("[")|| d.contains("]"))
+        {
+            JOptionPane.showMessageDialog(null, "You can only type numbers in Preis", "Error", JOptionPane.ERROR_MESSAGE);
+        } 
+        else if(d.contains(","))
+        {
+            JOptionPane.showMessageDialog(null, "The format should look like this '3.99' ", "Error", JOptionPane.ERROR_MESSAGE);
+        }      
+       
+
+        /*try {
             db.stat.executeUpdate("INSERT INTO Artikel (ProduktName, Kalorien, Gewicht, Preis) VALUES ('"+a+"',"+b+","+c+","+d+")");
             showTable();
 
         } catch (SQLException ex) {
             Logger.getLogger(AdminLebensmittel.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
 
     }//GEN-LAST:event_jaddActionPerformed
 
